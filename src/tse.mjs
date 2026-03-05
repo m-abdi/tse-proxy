@@ -24,7 +24,7 @@ export default class TSE {
         );
       }
       let settings = { adjustPrices: 1 };
-      
+
       if (from) {
         settings = {
           ...settings,
@@ -100,6 +100,16 @@ export default class TSE {
           volume: symbolData.volume.slice(-count),
         };
       }
+      symbolData = {
+        datetime: symbolData.datetime.map((item) =>
+          parseInt(item?.getTime() / 1000),
+        ),
+        open: symbolData.open.slice(-count),
+        high: symbolData.high.slice(-count),
+        low: symbolData.low.slice(-count),
+        close: symbolData.close.slice(-count),
+        volume: symbolData.volume.slice(-count),
+      };
       return symbolData;
     } catch (error) {
       return {

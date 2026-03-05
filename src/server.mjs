@@ -18,8 +18,8 @@ app.get("/prices", async (req, res) => {
       symbol,
       timeframe,
       count,
-      from && new Date(from?.includes('-') ? from : parseInt(from) * 1000),
-      to && new Date(to?.includes('-') ? to : parseInt(to) * 1000),
+      from && new Date(from?.includes("-") ? from : parseInt(from) * 1000),
+      to && new Date(to?.includes("-") ? to : parseInt(to) * 1000),
     );
 
     res.json(data);
