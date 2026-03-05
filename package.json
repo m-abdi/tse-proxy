@@ -1,6 +1,15 @@
 {
+  "scripts": {
+    "format": "prettier --write .",
+    "start": "node src/server.mjs"
+  },
   "dependencies": {
+    "encode-uri-component": "^0.1.0",
     "express": "^5.2.1",
+    "jalaali-js": "^1.2.8",
     "tse-client": "^2.27.6"
+  },
+  "devDependencies": {
+    "prettier": "^3.8.1"
   }
 }
