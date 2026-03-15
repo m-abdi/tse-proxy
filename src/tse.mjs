@@ -71,13 +71,17 @@ export default class TSE {
 
       if (to) {
         let cut = 0;
-        for (let i = 0; i < symbolData.datetime.length; i++) {
-          if (symbolData.datetime[i].getTime() > to.getTime()) {
-            cut = i;
-            break;
-          } else if (symbolData.datetime[i].getTime() === to.getTime()) {
-            cut = i + 1;
-            break;
+        if (to.getTime() > symbolData.datetime.at(-1).getTime()) {
+          cut = symbolData.datetime.length;
+        } else {
+          for (let i = 0; i < symbolData.datetime.length; i++) {
+            if (symbolData.datetime[i].getTime() > to.getTime()) {
+              cut = i;
+              break;
+            } else if (symbolData.datetime[i].getTime() === to.getTime()) {
+              cut = i + 1;
+              break;
+            }
           }
         }
 
@@ -104,11 +108,11 @@ export default class TSE {
         datetime: symbolData.datetime.map((item) =>
           parseInt(item?.getTime() / 1000),
         ),
-        open: symbolData.open.slice(-count),
-        high: symbolData.high.slice(-count),
-        low: symbolData.low.slice(-count),
-        close: symbolData.close.slice(-count),
-        volume: symbolData.volume.slice(-count),
+        open: symbolData.open,
+        high: symbolData.high,
+        low: symbolData.low,
+        close: symbolData.close,
+        volume: symbolData.volume,
       };
       return symbolData;
     } catch (error) {
