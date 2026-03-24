@@ -1,10 +1,10 @@
-FROM node:alpine AS builder
+FROM node:alpine
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY . .
 
-RUN npm install --frozen-lockfile
+RUN npm ci
 
 EXPOSE 3000
 
