@@ -2,6 +2,10 @@
 
 A lightweight HTTP proxy over the **Tehran Stock Exchange (TSE)** for fetching OHLC (Open/High/Low/Close) candlestick data and the full list of tradable instruments. Built on top of the [`tse-client`](https://www.npmjs.com/package/tse-client) npm package and served via Express.
 
+> [!NOTE]
+> This proxy must be deployed on a server located **inside Iran**. TSE data servers
+> are not accessible from outside the country.
+
 ## Features
 
 - 📈 Fetch OHLC candlestick data for any TSE instrument
